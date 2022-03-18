@@ -5,10 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.PopupMenu
 import android.widget.RelativeLayout
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.popupapplication.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
-
+//main activity
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             val popup = PopupMenu(this, button)
             popup.menuInflater.inflate(R.menu.pop_up_menu, popup.menu)
-
+//when the pop up is clicked
             popup.setOnMenuItemClickListener { myItem ->
                 val item = myItem!!.itemId
                 when (item) {
@@ -34,6 +35,9 @@ class MainActivity : AppCompatActivity() {
 
                     R.id.delete -> {
                         background.setBackgroundColor(Color.GREEN)
+                    }
+                    R.id.edit ->{
+                        Toast.makeText(this, "Edit pressed",Toast.LENGTH_SHORT).show()
                     }
 
                 }
